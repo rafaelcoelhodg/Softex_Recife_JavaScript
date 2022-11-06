@@ -1,0 +1,59 @@
+Atividade realizada em JavaScript e HTML
+
+Instruções: 
+Criar um programa de calculadora que: 
+Receba dois valores, que devem ser salvos em variáveis; 
+O usuário deve colocar qual operador ele vai utilizar por meio dos símbolos aritméticos; 
+Com os dois valores e o operador definido, o programa deve fazer a operação e retornar o resultado; 
+Se houver divisão, você deve retornar o resultado e a sobra, caso haja alguma. 
+
+
+
+<!DOCTYPE html>
+<html lang="br">
+<head>
+    <meta charset="UTF-8">
+    <title>Calculadora</title>
+</head>
+<body>
+    <script>
+        // Criação da variável do primeiro número.
+        var num1 = parseInt(prompt("Digite o primeiro número: ")); 
+
+        // Criação do laço de repetição para controlar o que o usuário digita.
+    do{
+        var operacao = prompt("Digite a operação matemática desejada");
+    } while(operacao!= "+" && operacao!= "-" && operacao!= "*" && operacao!= "/")
+
+    // Criação da variável do segundo número.
+    var num2 = parseInt(prompt("Digite o segundo número: "));
+
+    // Criação da variável do resultado.
+    var resultado = 0
+
+    // Criação da estrutura condicional para escolha da operação desejada pelo usuário.
+    switch(operacao){
+        case "+":
+            resultado = num1+num2
+            alert(resultado)
+            break
+        
+        case "-":
+            resultado = num1-num2
+            alert(resultado)
+            break
+        
+        case "*":
+            resultado = num1*num2
+            alert(resultado)
+            break
+        
+        case "/":
+            resultado = num1/num2
+            alert(resultado)
+            break
+    }
+
+    </script>
+</body>
+</html>
