@@ -1,0 +1,20 @@
+#Atividade realizada em apenas JavaScript
+
+Instruções: Crie um programa que contenha os seguintes tipos de funções:
+Crie um programa que utilize essas três funções de forma lógica, por exemplo: um programa de calculadora.
+
+//1. uma função tradicional com a palavra reservada “Function” e sem nenhum parâmetro;
+
+function calculadora(){
+
+}
+
+//2. uma função tradicional com parâmetros e um retorno de valor;
+
+function calculadora(num1, num2){
+    var resultado = num1 + num2;
+    console.log(resultado);
+}
+
+//3. uma arrow function com parâmetros e que retorne um valor.
+(num1, num2) => {num1 + num2}
