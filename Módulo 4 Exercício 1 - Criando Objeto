@@ -1,37 +1,53 @@
 //Crie um código com um objeto chamado “Banco”. Ele deverá ter propriedades que incluem conta, saldo, tipo de conta e agência 
-
 function Banco (conta, saldo, tipo, agencia,){
     this.conta = conta;
     this.saldo = saldo;
     this.tipo = tipo;
     this.agencia = agencia;
-}
+    
 //e os seus métodos devem ser: buscar saldo, depósito, saque e número da conta.
-sacar(valor) {
-    if (this.saldo >= valor) {
-        this.saldo -= valor;
-        return valor;
+    this.buscarSaldo = function(){
+        console.log("Saldo atual: R$"+this.saldo);
     }
-}
-
-depositar(valor) {
-    if (valor <= 100) {
-        return;
+    this.deposito = function(transferencia){
+        this.saldo += transferencia;
     }
-    this._saldo += valor;
-}
 
-tranferir(valor, conta) {
+    this.saque = function(transferencia){
+        this.saldo -= transferencia;
+    }
 
-    const valorSacado = this.sacar(valor);
-    conta.depositar(valorSacado);
+    this.numeroConta = function(){
+        this.conta;
+        this.tipo;
+        this.agencia;
+        console.log("Número de conta é: "+this.agencia, this.tipo, this.conta);
+    }
+};
 
-}
-
-var conta = new Banco("2345", 150.5, "contacorrente")
+let readData = require('readline-sync');
+let informacao,valor;
 
 //Observações:
 //- buscar saldo deve retornar o valor atual do saldo;
 //- para o depósito, você deverá passar um valor como parâmetro e adicioná-lo no saldo final do objeto;
 //- para o saque, você deverá passar um valor como parâmetro e subtraí-lo no saldo final do objeto;
 //- o número da conta deve retornar o número da conta.
+var minhaConta = new Banco("2345", 150.5, "corrente)", "2990");
+minhaConta.numeroConta();
+minhaConta.buscarSaldo();
+informacao = readData.question("Deseja depositar ou sacar?");
+switch(informacao){
+    case 'depositar':
+        valor = parseFloat(readData.question("Informe o valor do deposito: "));
+        minhaConta.deposito(valor);
+        break;
+    case 'sacar':
+        valor = parseFloat(readData.question("Informe o valor do saque: "));
+        minhaConta.saque(valor);
+        break;
+    default:
+        console.log("ERRo");
+        break;
+}
+minhaConta.buscarSaldo();
